@@ -1,0 +1,15 @@
+# Makefile.server - Makefile to build the server
+#
+CC = g++
+CFLAGS = -g -Wall -std=c++11 -pthread
+OBJS = LogServer.o
+
+logserver: $(OBJS)
+	$(CC) $(CFLAGS) -o logserver $(OBJS)
+
+LogServer.o: LogServer.cpp
+	$(CC) $(CFLAGS) -c LogServer.cpp
+
+clean:
+	rm -f *.o logserver
+
